@@ -10,7 +10,7 @@ RUN apt-get update
 
 # Start editing
 RUN apt-get -y install supervisor ca-certificates git postgresql-client build-essential catdoc elinks gettext ghostscript gnuplot-nox libicu-dev \
-libmagic-dev libmagickwand-dev libpq-dev libxml2-dev libxslt1-dev links lockfile-progs mutt pdftk poppler-utils postgresql postgresql-client \
+libmagic-dev libmagickwand-dev libpq-dev libxml2-dev libxslt1-dev links sqlite3 lockfile-progs mutt pdftk poppler-utils postgresql postgresql-client \
 tnef unrtf uuid-dev wkhtmltopdf wv xapian-tools
 
 RUN git config --global url.https://github.com/.insteadOf git://git@github.com/
