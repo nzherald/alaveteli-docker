@@ -18,10 +18,11 @@ postgresql-client tnef unrtf uuid-dev wkhtmltopdf wv xapian-tools
 RUN git clone https://github.com/nzherald/alaveteli.git --branch develop /opt/alaveteli
 
 # Add files
-ADD assets/setup_alaveteli.sh /opt/setup_alaveteli.sh
 ADD assets/setup.sh /opt/setup.sh
 
-RUN /opt/setup_alaveteli.sh
+RUN cd /opt/alaveteli; git submodule init && git submodule update
+RUN cd /opt/alaveteli; bundle install --deployment --without development test --retry=10
+
 
 # Run
 CMD /opt/setup.sh; /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
