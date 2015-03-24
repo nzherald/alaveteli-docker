@@ -24,6 +24,7 @@ RUN cd /opt/alaveteli; git submodule init && git submodule update
 RUN cd /opt/alaveteli; bundle install --deployment --without development test --retry=10
 
 ADD assets/database.yml /opt/alaveteli/config/database.yml
+ADD assets/general.yml /opt/alaveteli/config/general.yml
 
 # Run
 CMD /opt/setup.sh; /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
