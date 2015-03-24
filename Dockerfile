@@ -21,6 +21,9 @@ RUN git clone https://github.com/nzherald/alaveteli.git --branch develop /opt/al
 ADD assets/setup.sh /opt/setup.sh
 
 RUN cd /opt/alaveteli; git submodule init && git submodule update
+
+RUN git config --global url."https://".insteadOf git://
+
 RUN cd /opt/alaveteli; bundle install --deployment --without development test --retry=10
 
 ADD assets/database.yml /opt/alaveteli/config/database.yml

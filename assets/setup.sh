@@ -12,7 +12,6 @@ nodaemon=true
 
 [program:alaveteli]
 directory=/opt/alaveteli
-process_name=alaveteli
 command=bundle exec thin
 
 [program:rsyslog]

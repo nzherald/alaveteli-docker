@@ -12,7 +12,6 @@ Checkout the `.env-sample`, fill in the values, and rename it `.env`
 
 Current status: *work in progress*
 
-
 ### How to use:
 
 `git clone https://github.com/nzherald/alaveteli-docker.git`
