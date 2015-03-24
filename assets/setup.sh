@@ -19,4 +19,5 @@ command=bundle exec thin
 command=/usr/sbin/rsyslogd -n -c3
 EOF
 
-
+cp /opt/alaveteli
+bundle exec rake themes:install

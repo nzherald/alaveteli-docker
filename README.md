@@ -2,8 +2,13 @@
 
 Dockerfile for building Alaveteli
 
-This dockerfile submodules the Alaveteli git repo at tagged release
-commits.
+You need:
+
+1. a .env file that the docker image can use which has all the relevant
+   `config/general/yml` settings you might expect in an Alaveteli
+   installation
+
+
 
 
 Current status: *work in progress*

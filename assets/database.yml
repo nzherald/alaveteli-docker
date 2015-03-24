@@ -1,0 +1,8 @@
+development: &defaults
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *defaults
+test:
+  <<: *defaults
