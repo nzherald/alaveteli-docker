@@ -8,8 +8,7 @@ You need:
    `config/general/yml` settings you might expect in an Alaveteli
    installation
 
-
-
+Checkout the `.env-sample`, fill in the values, and rename it `.env`
 
 Current status: *work in progress*
 
