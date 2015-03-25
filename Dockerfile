@@ -25,7 +25,7 @@ WORKDIR /opt/alaveteli
 RUN git submodule init && git submodule update
 RUN git config --global url."https://".insteadOf git://
 
-RUN bundle install --without development debug test --deployment
+RUN bundle install --without development debug test --deployment --retry=10
 
 ADD assets/setup.sh /opt/setup.sh
 
