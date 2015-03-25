@@ -19,4 +19,4 @@ command=/usr/sbin/rsyslogd -n -c3
 EOF
 
 cd /opt/alaveteli
-bundle exec rake themes:install
+script/rails-post-deploy
