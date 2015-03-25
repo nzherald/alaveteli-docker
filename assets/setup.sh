@@ -1,22 +1,9 @@
 #!/bin/bash
 
-# sanity check
-if [[ -a /etc/supervisor/conf.d/supervisord.conf ]]; then
-  exit 0
-fi
-
-# supervisor
-cat > /etc/supervisor/conf.d/supervisord.conf <<EOF
-[supervisord]
-nodaemon=true
-
-[program:alaveteli]
-directory=/opt/alaveteli
-command=bundle exec thin
-
-[program:rsyslog]
-command=/usr/sbin/rsyslogd -n -c3
-EOF
-
 cd /opt/alaveteli
-script/rails-post-deploy
+bundle exec rake themes:install
+bundle exec rake assets:precompile
+bundle exec rake db:migrate
+bundle exec rake xapian:rebuild_index models="PublicBody User InfoRequestEvent"
+
+bundle exec thin start

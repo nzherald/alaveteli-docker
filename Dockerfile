@@ -1,4 +1,4 @@
-From ruby:2.1
+FROM ruby:2.1
 MAINTAINER Caleb Tutty
 
 # Set noninteractive mode for apt-get
@@ -10,7 +10,7 @@ RUN apt-get update
 
 # Start editing
 RUN apt-get -y install supervisor ca-certificates git postgresql-client build-essential catdoc elinks \
-gettext ghostscript gnuplot-nox imagemagick pyyaml \
+gettext ghostscript gnuplot-nox imagemagick python-yaml \
 libicu-dev libmagic-dev libmagickwand-dev libmagickcore-dev libpq-dev libxml2-dev libxslt1-dev links \
 sqlite3 lockfile-progs mutt pdftk poppler-utils \
 postgresql-client tnef unrtf uuid-dev wkhtmltopdf wv xapian-tools
@@ -25,9 +25,8 @@ WORKDIR /opt/alaveteli
 RUN git submodule init && git submodule update
 RUN git config --global url."https://".insteadOf git://
 
+RUN bundle install --without development debug test --deployment
+
 ADD assets/setup.sh /opt/setup.sh
-RUN /opt/setup.sh
 
-#/opt/setup.sh; /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
-
-ENTRYPOINT ["bundle", "exec", "thin"]
+CMD /opt/setup.sh
