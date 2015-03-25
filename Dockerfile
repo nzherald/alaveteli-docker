@@ -1,4 +1,4 @@
-From ruby:2
+From ruby:2.1
 MAINTAINER Caleb Tutty
 
 # Set noninteractive mode for apt-get
@@ -10,25 +10,24 @@ RUN apt-get update
 
 # Start editing
 RUN apt-get -y install supervisor ca-certificates git postgresql-client build-essential catdoc elinks \
-gettext ghostscript gnuplot-nox imagemagick \
+gettext ghostscript gnuplot-nox imagemagick pyyaml \
 libicu-dev libmagic-dev libmagickwand-dev libmagickcore-dev libpq-dev libxml2-dev libxslt1-dev links \
 sqlite3 lockfile-progs mutt pdftk poppler-utils \
 postgresql-client tnef unrtf uuid-dev wkhtmltopdf wv xapian-tools
 
 RUN git clone https://github.com/nzherald/alaveteli.git --branch develop /opt/alaveteli
 
-# Add files
-ADD assets/setup.sh /opt/setup.sh
-
-RUN cd /opt/alaveteli; git submodule init && git submodule update
-
-RUN git config --global url."https://".insteadOf git://
-
-RUN cd /opt/alaveteli; bundle install --deployment --without development test --retry=10
-
 ADD assets/database.yml /opt/alaveteli/config/database.yml
 ADD assets/general.yml /opt/alaveteli/config/general.yml
 
-# Run
-CMD /opt/setup.sh; /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+WORKDIR /opt/alaveteli
 
+RUN git submodule init && git submodule update
+RUN git config --global url."https://".insteadOf git://
+
+ADD assets/setup.sh /opt/setup.sh
+RUN /opt/setup.sh
+
+#/opt/setup.sh; /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+
+ENTRYPOINT ["bundle", "exec", "thin"]
