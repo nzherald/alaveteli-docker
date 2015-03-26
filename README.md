@@ -10,9 +10,18 @@ You need:
 
 Checkout the `.env-sample`, fill in the values, and rename it `.env`
 
-Current status: *work in progress*
+This is designed to be run with a mounted volume for sharing the socket
+file with a webserver like nginx.
 
-### How to use:
+Run with docker like this:
+
+```
+docker --run -v /data/alaveteli:/data/alaveteli \
+  --env-file=/path/to/your/environment/file \
+  nzherald/alaveteli
+```
+
+### How to customise:
 
 `git clone https://github.com/nzherald/alaveteli-docker.git`
 
