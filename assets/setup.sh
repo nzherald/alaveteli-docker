@@ -2,15 +2,17 @@
 
 cd /opt/alaveteli
 
-rm -rf lib/acts_as_xapian/xapiandbs/production
+rm -rf /opt/alaveteli/lib/acts_as_xapian/xapiandbs/production
 
 mkdir -p $XAPIAN_MOUNT_PATH/$RAILS_ENV
-ln -s $XAPIAN_MOUNT_PATH/$RAILS_ENV lib/acts_as_xapian/xapiandbs/$RAILS_ENV
+ln -s /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV $XAPIAN_MOUNT_PATH/$RAILS_ENV
 
 bundle exec rake db:create
 bundle exec rake db:migrate
 bundle exec rake themes:install
 bundle exec rake assets:precompile
+
+cp -rf /opt/alaveteli/public /data/alaveteli/public
 
 # Uncomment to rebuild the index on every launch of the container
 # bundle exec rake xapian:rebuild_index models="PublicBody User InfoRequestEvent"
