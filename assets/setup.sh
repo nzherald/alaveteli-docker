@@ -9,7 +9,7 @@ mkdir /opt/alaveteli/lib/acts_as_xapian/xapiandbs
 echo "making $XAPIAN_MOUNT_PATH/$RAILS_ENV"
 mkdir -p $XAPIAN_MOUNT_PATH/$RAILS_ENV
 
-echo "linkning $XAPIAN_MOUNT_PATH/$RAILS_ENV/ to /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV/"
+echo "linking $XAPIAN_MOUNT_PATH/$RAILS_ENV/ to /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV/"
 ln -s $XAPIAN_MOUNT_PATH/$RAILS_ENV/ /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV
 
 bundle exec rake db:create

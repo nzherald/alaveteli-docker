@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV RAILS_ENV production
 
 # Update
-RUN apt-get update
+RUN apt-get update && apt-get upgrade -y
 
 # Start editing
 RUN apt-get -y install supervisor ca-certificates git postgresql-client build-essential catdoc elinks \
