@@ -4,8 +4,11 @@ cd /opt/alaveteli
 
 rm -rf /opt/alaveteli/lib/acts_as_xapian/xapiandbs/production
 
+echo "making $XAPIAN_MOUNT_PATH/$RAILS_ENV"
 mkdir -p $XAPIAN_MOUNT_PATH/$RAILS_ENV
-ln -s /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV $XAPIAN_MOUNT_PATH/$RAILS_ENV
+
+echo "linkning $XAPIAN_MOUNT_PATH/$RAILS_ENV/ to /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV/"
+ln -s $XAPIAN_MOUNT_PATH/$RAILS_ENV/ /opt/alaveteli/lib/acts_as_xapian/xapiandbs/$RAILS_ENV/
 
 bundle exec rake db:create
 bundle exec rake db:migrate
