@@ -1,11 +1,12 @@
 #!/bin/bash
 
-if [ -z $NEWRELIC_LICENSE_KEY];
+if [ -z $NEWRELIC_LICENSE_KEY]
+then
 
-  nrsysmond-config --set license_key=$NEWRELIC_LICENSE_KEY;
-  /etc/init.d/newrelic-sysmond start;
+  nrsysmond-config --set license_key=$NEWRELIC_LICENSE_KEY
+  /etc/init.d/newrelic-sysmond start
 
-fi;
+fi
 
 cd /opt/alaveteli
 
