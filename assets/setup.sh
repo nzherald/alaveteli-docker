@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z $NEWRELIC_LICENSE_KEY]
+if [ -z $NEWRELIC_LICENSE_KEY ]
 then
 
   nrsysmond-config --set license_key=$NEWRELIC_LICENSE_KEY
