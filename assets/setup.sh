@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ -z $NEWRELIC_LICENSE_KEY];
+
+  nrsysmond-config --set license_key=$NEWRELIC_LICENSE_KEY;
+  /etc/init.d/newrelic-sysmond start;
+
+fi;
+
 cd /opt/alaveteli
 
 rm -rf /opt/alaveteli/lib/acts_as_xapian/xapiandbs/production

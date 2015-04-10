@@ -27,6 +27,11 @@ RUN git config --global url."https://".insteadOf git://
 
 RUN bundle install --without development debug test --deployment --retry=10
 
+RUN echo deb http://apt.newrelic.com/debian/ newrelic non-free >> /etc/apt/sources.list.d/newrelic.list
+RUN wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+RUN apt-get update
+RUN apt-get install newrelic-sysmond
+
 ADD assets/setup.sh /opt/setup.sh
 
 CMD /opt/setup.sh
