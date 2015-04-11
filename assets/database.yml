@@ -5,6 +5,7 @@ development:
 production:
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
+  pool: 10
 
 test:
   adapter: postgresql
