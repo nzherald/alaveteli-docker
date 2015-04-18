@@ -1,4 +1,4 @@
-FROM ruby:2.1
+FROM ruby:2.1.6
 MAINTAINER Caleb Tutty
 
 # Set noninteractive mode for apt-get
