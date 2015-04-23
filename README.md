@@ -27,4 +27,4 @@ docker --run -v /data/alaveteli:/data/alaveteli \
 
 `cd alaveteli-docker`
 
-`docker build -t nzherald/alaveteli-docker`
+`docker build -t nzherald/alaveteli-docker .`
