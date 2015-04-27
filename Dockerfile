@@ -1,5 +1,5 @@
 FROM ruby:2.1.6
-MAINTAINER Caleb Tutty
+MAINTAINER caleb.tutty@nzherald.co.nz
 
 # Set noninteractive mode for apt-get
 ENV DEBIAN_FRONTEND noninteractive
