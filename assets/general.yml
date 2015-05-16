@@ -88,7 +88,7 @@ ADMIN_PASSWORD: <%= ENV['ADMIN_PASSWORD'] %>
 DISABLE_EMERGENCY_USER: <%= ENV['DISABLE_EMERGENCY_USER'] == 'true' ? true : false %>
 
 # Set this to true, and the admin interface will be available to anonymous users
-SKIP_ADMIN_AUTH: <%= ENV['DISABLE_EMERGENCY_USER'] == 'true' ? true : false %>
+SKIP_ADMIN_AUTH: <%= ENV['SKIP_ADMIN_AUTH'] == 'true' ? true : false %>
 
 # Email "from" details
 CONTACT_EMAIL: <%= ENV['CONTACT_EMAIL'] %>
